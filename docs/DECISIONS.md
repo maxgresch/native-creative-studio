@@ -39,3 +39,9 @@ No measured time saving, creative-quality score or business impact is claimed by
 ## Native template alignment
 
 The creator now follows the supplied Native production references, including privately configured Franklin Gothic FS Book/Demi, one kicker, a white background, black copy and a STORY sender with arrow. The typography endpoint outlines copy without receiving image bytes. Preview and exported assets share those paths; production font files are excluded from source control and exports. See NATIVE-DESIGN.md for the reference scope and remaining sender/crop limits.
+
+## Reading-page design and optional publisher sender
+
+The reading output uses an editorial article layout: a typographic introduction, image-led opening when a motif is supplied, a narrow reading column and restrained source notes. The three visual directions retain distinct typography and image treatment without large coloured presentation blocks. A separate-tab preview uses the same HTML as the in-studio reading sample and download.
+
+The teaser creator starts with the STORY BERLIN sender switched off. A labelled checkbox controls it. The boolean setting is normalized, retained in project files, sent to the text renderer and reflected in PNG, SVG and HTML exports; the arrow remains the click cue.

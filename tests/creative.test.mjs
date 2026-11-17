@@ -4,7 +4,7 @@ import {demoBrief,demoAnalysis,demoDraft} from '../lib/studio-examples.mjs';
 import {TEASER_FORMATS,renderTeaserSvg,teaserHtml,creativeFit,normalizeCreative,wrapCopy,creativeLayout,wrapMeasured,withCreativeImage} from '../lib/teaser-creative.mjs';
 import {projectSnapshot,readProject} from '../lib/studio-project.mjs';
 
-test('every teaser renders in all three exact creative dimensions',()=>{for(const teaser of demoDraft.teasers)for(const [format,size] of Object.entries(TEASER_FORMATS)){const svg=renderTeaserSvg(teaser,demoBrief.brand,{format});assert.ok(svg.includes(`width="${size.width}" height="${size.height}"`));assert.equal((svg.match(/data-copy="kicker"/g)||[]).length,1);assert.ok(!svg.includes('ANZEIGE · KONZEPTSTUDIE'));assert.ok(!svg.includes('Georgia'));assert.ok(svg.includes('STORY BERLIN'));assert.ok(!svg.includes('Mehr erfahren'));assert.ok(svg.includes('MOTIVPLATZHALTER'));assert.ok(!svg.includes('<script'));}});
+test('every teaser renders in all three exact creative dimensions',()=>{for(const teaser of demoDraft.teasers)for(const [format,size] of Object.entries(TEASER_FORMATS)){const svg=renderTeaserSvg(teaser,demoBrief.brand,{format});assert.ok(svg.includes(`width="${size.width}" height="${size.height}"`));assert.equal((svg.match(/data-copy="kicker"/g)||[]).length,1);assert.ok(!svg.includes('ANZEIGE · KONZEPTSTUDIE'));assert.ok(!svg.includes('Georgia'));assert.ok(!svg.includes('STORY BERLIN'));assert.ok(!svg.includes('Mehr erfahren'));assert.ok(svg.includes('MOTIVPLATZHALTER'));assert.ok(!svg.includes('<script'));}});
 test('creative copy, brand and CTA cannot inject markup',()=>{const svg=renderTeaserSvg({...demoDraft.teasers[0],headline:'<script>alert(1)</script>',cta:'<img onerror="x">'},'<iframe>');assert.ok(!svg.includes('<script'));assert.ok(!svg.includes('<iframe>'));assert.ok(!svg.includes('<img onerror='));assert.match(svg,/&lt;/);});
 test('SVG images and invalid colors cannot enter the creative',()=>{const s=normalizeCreative({image:'data:image/svg+xml;base64,PHN2Zz4=',accent:'red;url(javascript:1)'});assert.equal(s.image,'');assert.equal(s.accent,'#ff343b');});
 test('HTML export requires a valid destination and makes the whole creative a link',()=>{assert.throws(()=>teaserHtml(demoDraft.teasers[0],'WEITER'),/Ziel-URL/);assert.throws(()=>teaserHtml(demoDraft.teasers[0],'WEITER',{targetUrl:'javascript:alert(1)'}),/Ziel-URL/);const html=teaserHtml(demoDraft.teasers[0],'WEITER',{targetUrl:'https://example.org/story'});assert.ok(html.includes('href="https://example.org/story"'));assert.ok(html.includes('rel="noopener noreferrer"'));assert.ok(html.includes('<svg'));});
@@ -54,4 +54,18 @@ test('image bytes are added locally without changing the text outlines',()=>{
 test('invalid font contours fail instead of producing incomplete exports',()=>{
  const bad={getAdvanceWidth:(text,size)=>text.length*size*.4,getPath:()=>({toPathData:()=> 'MNaN 0L1 1Z'})};
  assert.throws(()=>renderTeaserSvg(demoDraft.teasers[0],'WEITER',{}, {book:bad,demi:bad}),/Schriftkontur/);
+});
+
+test('optional Story branding follows the saved selection in every format and export',()=>{
+ for(const showStoryLogo of [false,true])for(const format of Object.keys(TEASER_FORMATS)){
+  const settings={format,showStoryLogo,targetUrl:'https://example.org/story'};
+  const svg=renderTeaserSvg(demoDraft.teasers[0],'WEITER',settings);
+  assert.equal(svg.includes('aria-label="STORY BERLIN"'),showStoryLogo);
+  assert.equal(svg.includes('data-brand="story-berlin"'),showStoryLogo);
+  assert.ok(teaserHtml(demoDraft.teasers[0],'WEITER',settings,svg).includes(svg));
+  const saved=readProject(JSON.stringify(projectSnapshot({brief:demoBrief,creatives:[settings]})));
+  assert.equal(saved.creatives[0].showStoryLogo,showStoryLogo);
+ }
+ assert.equal(normalizeCreative().showStoryLogo,false);
+ assert.equal(normalizeCreative({showStoryLogo:'true'}).showStoryLogo,false);
 });

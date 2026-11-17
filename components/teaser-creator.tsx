@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Download, ImagePlus, X } from 'lucide-react';
 import { CREATIVE_DEFAULT, TEASER_FORMATS, teaserHtml, withCreativeImage } from '@/lib/teaser-creative.mjs';
 type Teaser = { angle: string; headline: string; body: string; cta: string };
-export type Creative = { format: string; kicker: string; accent: string; image: string; imageName: string; targetUrl: string };
+export type Creative = { format: string; kicker: string; showStoryLogo: boolean; accent: string; image: string; imageName: string; targetUrl: string };
 type Fit = Record<'kicker' | 'headline' | 'body' | 'cta', { lines: string[]; overflow: boolean }>;
 const save = (name: string, blob: Blob) => { const url = URL.createObjectURL(blob), a = document.createElement('a'); a.href = url; a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); };
 export default function TeaserCreator({ value, brand, index, settings, onChange, onSettings, onStoryOpen, onClose }: { value: Teaser; brand: string; index: number; settings?: Creative; onChange: (v: Teaser) => void; onSettings: (v: Creative) => void; onStoryOpen: () => void; onClose: () => void }) {
@@ -22,7 +22,7 @@ export default function TeaserCreator({ value, brand, index, settings, onChange,
     setLoading(true); setRenderError('');
     const timer = setTimeout(async () => {
       try {
-        const response = await fetch('/api/teaser-render', { method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: controller.signal, body: JSON.stringify({ teaser: { headline: copy.headline, body: copy.body, cta: copy.cta }, brand, settings: { format: s.format, kicker: s.kicker, accent: s.accent } }) });
+        const response = await fetch('/api/teaser-render', { method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: controller.signal, body: JSON.stringify({ teaser: { headline: copy.headline, body: copy.body, cta: copy.cta }, brand, settings: { format: s.format, kicker: s.kicker, accent: s.accent, showStoryLogo: s.showStoryLogo } }) });
         const result = await response.json() as { svg: string; fit: Fit; error?: string };
         if (!response.ok || typeof result.svg !== 'string' || !result.fit) throw new Error(result.error || 'Die Vorschau konnte nicht geladen werden.');
         if (!controller.signal.aborted) setRendered(result);
@@ -30,7 +30,7 @@ export default function TeaserCreator({ value, brand, index, settings, onChange,
       finally { if (!controller.signal.aborted) setLoading(false); }
     }, 180);
     return () => { clearTimeout(timer); controller.abort(); };
-  }, [copy.headline, copy.body, copy.cta, brand, s.format, s.kicker, s.accent, retry]);
+  }, [copy.headline, copy.body, copy.cta, brand, s.format, s.kicker, s.accent, s.showStoryLogo, retry]);
   function edit(key: keyof Teaser, text: string) { const next = { ...copy, [key]: text }; setCopy(next); if (next.headline.trim() && next.body.trim()) onChange(next); }
   async function upload(file: File | undefined) {
     if (!file) return; setError('');
@@ -63,12 +63,13 @@ export default function TeaserCreator({ value, brand, index, settings, onChange,
       <label className="field">Headline<input aria-label="Teaser-Headline" aria-invalid={!loading && rendered?.fit.headline.overflow || undefined} value={copy.headline} maxLength={160} onChange={e => edit('headline', e.target.value)}/></label>
       <label className="field">Teaser-Text<textarea aria-label="Teaser-Text" aria-invalid={!loading && rendered?.fit.body.overflow || undefined} value={copy.body} rows={4} maxLength={500} onChange={e => edit('body', e.target.value)}/></label>
       <div className="creator-small-fields"><label className="field">Format<select aria-label="Teaser-Format" value={s.format} onChange={e => onSettings({ ...s, format: e.target.value })}>{Object.entries(TEASER_FORMATS).map(([key, format]) => <option value={key} key={key}>{format.label}</option>)}</select></label><label className="field">Pfeilfarbe<input aria-label="Teaser-Akzentfarbe" type="color" value={s.accent} onChange={e => onSettings({ ...s, accent: e.target.value })}/></label></div>
+      <label className="creator-brand-option"><input type="checkbox" aria-label="STORY-BERLIN-Logo einblenden" checked={s.showStoryLogo} onChange={e => onSettings({ ...s, showStoryLogo: e.target.checked })}/><span>STORY-BERLIN-Logo einblenden<small>Optionaler Absender für das Tagesspiegel-Umfeld.</small></span></label>
       <label className="file-label secondary"><ImagePlus size={16}/> Eigenes Teaser-Motiv<input aria-label="Eigenes Teaser-Motiv" type="file" accept="image/png,image/jpeg,image/webp" onChange={e => { void upload(e.target.files?.[0]); e.target.value = ''; }}/></label>
       {s.imageName && <div className="image-name"><span>{s.imageName}</span><button aria-label="Teaser-Motiv entfernen" onClick={() => onSettings({ ...s, image: '', imageName: '' })}><X size={16}/></button></div>}
       <label className="field">Ziel-URL <span>Für klickbaren HTML-Export</span><input aria-label="Teaser-Ziel-URL" type="url" placeholder="https://…" value={s.targetUrl} maxLength={2048} onChange={e => onSettings({ ...s, targetUrl: e.target.value })}/></label>
       <small>Text und Gestaltung werden im Projekt gespeichert. Ein eigenes Motiv wird in die Exportdateien eingebettet.</small>
     </div><div className="creator-preview">
-      <div className="creator-format-label"><span>{f.width} × {f.height} px</span><span>Konzeptvorschau · STORY-Layout</span></div>
+      <div className="creator-format-label"><span>{f.width} × {f.height} px</span><span>Konzeptvorschau · Native-Layout</span></div>
       <div className="creative-stage" ref={container} aria-busy={loading}>
         {svg ? <button className="creative-open" aria-label="Leseprobe über Teaser öffnen" onClick={onStoryOpen} style={{ width: f.width * scale, height: f.height * scale, opacity: loading ? .6 : 1 }}><div style={{ width: f.width, height: f.height, transform: `scale(${scale})`, transformOrigin: 'top left' }} dangerouslySetInnerHTML={{ __html: svg }}/></button> : <p className="creator-loading">{loading ? 'Vorschau wird geladen …' : renderError}</p>}
       </div>

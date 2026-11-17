@@ -11,7 +11,8 @@ By [Max Greschak](https://github.com/maxgresch). The interface is in German.
 - Open **Teaser-Creator** for an editable example.
 - Change the single kicker, headline, body, format, arrow colour or image.
 - Preview Billboard 970 × 250, Halfpage 300 × 600 and Mobile 320 × 480.
-- Download PNG, SVG or HTML. Clickable HTML requires a destination URL. The Native template uses the STORY sender and an arrow instead of an extra CTA button.
+- Use the checkbox to add or remove the STORY BERLIN sender; it starts switched off.
+- Download PNG, SVG or HTML. The logo selection is retained in every export and the saved project. Clickable HTML requires a destination URL. The Native template uses an arrow instead of an extra CTA button.
 - Save the project JSON and reopen it later. Text is also saved in the current browser tab; images are included in downloaded project files.
 
 The WEITER example is fictional and was written in advance. It is not a live model result. The preview image is a labelled placeholder until an image is supplied. The Native template follows supplied Mercedes-Benz and Stadler references. Its fonts are Franklin Gothic FS Demi/Book; font files and customer reference images are not distributed here.
@@ -21,7 +22,7 @@ The WEITER example is fictional and was written in advance. It is not a live mod
 1. Enter the brand brief, audience, media environment and source excerpts.
 2. Review three approaches, each with a reader question, brand role, proposed execution and source references.
 3. Select and edit an approach before requesting the draft.
-4. Review the reading sample and edit its teaser creatives.
+4. Review the reading sample and edit its teaser creatives. The reading preview can also open in its own tab, using the same self-contained HTML as the export.
 
 Steps 2 and 3 need the model connection for new inputs. The saved example can be inspected without it. The interface does not ask users to switch to a separate ChatGPT conversation.
 
@@ -59,7 +60,8 @@ No real model call was made during validation. Provider tests use mocked respons
 | `lib/teaser-creative.mjs` | Measured layout, SVG renderer and destination handling |
 | `lib/teaser-typography.mjs` | Private font loading for outlined text |
 | `app/api/teaser-render/route.ts` | Server-side text outlines; receives no image bytes |
-| `lib/studio-contract.mjs` | Output schemas, evidence checks and reading-preview renderer |
+| `lib/studio-contract.mjs` | Output schemas and evidence checks |
+| `lib/reading-preview.mjs` | Responsive editorial reading page and self-contained HTML export |
 | `lib/studio-generator.mjs` | Editorial instructions and server-side model requests |
 | `lib/studio-project.mjs` | Save, import and tab recovery |
 | `lib/studio-examples.mjs` | Authored example and starting briefs |

@@ -28,3 +28,16 @@ test('missing API access fails closed without making a request or loading a fixt
 test('API request uses a strict schema and disables response storage',()=>{const body=buildModelRequest('angles',brief);assert.equal(body.store,false);assert.equal(body.text.format.strict,true);assert.equal(body.text.format.type,'json_schema');assert.equal(body.text.format.schema.additionalProperties,false);});
 test('mock provider output passes the same validators as imported output',async()=>{const result=await generate({stage:'angles',brief},{apiKey:'test-not-a-real-key',fetchImpl:async()=>goodResponse(demoAnalysis)});assert.equal(result.result.routes.length,3);assert.equal(result.meta.response_id,'mock_response');});
 test('refusal, incomplete output and rate limits do not produce a fallback result',async()=>{const cases=[['model_refusal',{output:[{content:[{type:'refusal'}]}]}],['incomplete_output',{status:'incomplete',output:[]}]];for(const [code,body] of cases)await assert.rejects(generate({stage:'angles',brief},{apiKey:'test-only',fetchImpl:async()=>({ok:true,json:async()=>body})}),{code});await assert.rejects(generate({stage:'angles',brief},{apiKey:'test-only',fetchImpl:async()=>({ok:false,status:429})}),{code:'model_limit'});});
+
+test('reading layouts retain all supplied copy and safe image/source content',()=>{
+ const b=copy(brief);b.sources[0].url='https://example.org/material';
+ for(const visual_direction of ['editorial','immersive','graphic'])for(const image of ['', 'data:image/png;base64,iVBORw0KGgo=']){
+  const html=previewHtml(b,{...demoAnalysis.routes[1],visual_direction},demoDraft,image);
+  for(const paragraph of [...demoDraft.opening,...demoDraft.explainer])assert.ok(html.includes(paragraph.text));
+  assert.equal((html.match(/<h1\b/g)||[]).length,1);
+  assert.equal(html.includes('<figure'),!!image);
+  assert.ok(html.includes('https://example.org/material'));
+  assert.ok(html.includes('Quellen &amp; Hinweise'));
+  assert.ok(!/<script|<iframe|<link/.test(html));
+ }
+});

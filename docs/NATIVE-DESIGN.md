@@ -11,7 +11,7 @@ standard are not redistributed in this repository.
   were removed from the visible creative.
 - Franklin Gothic FS Demi for the headline, Franklin Gothic FS Book for copy
   and the kicker. Production fonts are configured privately.
-- White background, black text, a STORY BERLIN sender and a red arrow.
+- White background, black text and a red arrow. The STORY BERLIN sender is optional: the creator checkbox starts off, and the saved project and all exports preserve that choice.
 - No additional CTA button or CTA copy. The HTML creative remains clickable.
 - Billboard: image left, text right. Halfpage and mobile: image above the text.
   Each format has its own dimensions and spacing.

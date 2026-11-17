@@ -14,7 +14,7 @@ export async function POST(request: Request) {
   if (!t || typeof t.headline !== 'string' || typeof t.body !== 'string' || t.headline.length > 160 || t.body.length > 500 || typeof payload.brand !== 'string' || payload.brand.length > 100) return Response.json({ error: 'Bitte Headline und Teaser-Text prüfen.' }, { status: 400, headers });
   // Image bytes and destination URLs stay in the browser. This endpoint only
   // outlines the displayed text using the privately configured production fonts.
-  const settings = { format: payload.settings?.format, kicker: payload.settings?.kicker, accent: payload.settings?.accent };
+  const settings = { format: payload.settings?.format, kicker: payload.settings?.kicker, accent: payload.settings?.accent, showStoryLogo: payload.settings?.showStoryLogo };
   try {
     const fonts = typographyFromBindings(env as unknown as Record<string, string>);
     const layout = creativeLayout(t, settings, fonts);
