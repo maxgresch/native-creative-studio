@@ -9,12 +9,12 @@ By [Max Greschak](https://github.com/maxgresch). The interface is in German.
 ## Try it
 
 - Open **Teaser-Creator** for an editable example.
-- Change headline, body, CTA, format, accent colour or image.
+- Change the single kicker, headline, body, format, arrow colour or image.
 - Preview Billboard 970 × 250, Halfpage 300 × 600 and Mobile 320 × 480.
-- Download PNG, SVG or HTML. Clickable HTML requires a destination URL.
+- Download PNG, SVG or HTML. Clickable HTML requires a destination URL. The Native template uses the STORY sender and an arrow instead of an extra CTA button.
 - Save the project JSON and reopen it later. Text is also saved in the current browser tab; images are included in downloaded project files.
 
-The WEITER example is fictional and was written in advance. It is not a live model result. The preview image is a labelled placeholder until an image is supplied.
+The WEITER example is fictional and was written in advance. It is not a live model result. The preview image is a labelled placeholder until an image is supplied. The Native template follows supplied Mercedes-Benz and Stadler references. Its fonts are Franklin Gothic FS Demi/Book; font files and customer reference images are not distributed here.
 
 ## Concept workflow
 
@@ -27,7 +27,7 @@ Steps 2 and 3 need the model connection for new inputs. The saved example can be
 
 ## Run locally
 
-Requires Node.js 22.13+ and npm.
+Requires Node.js 22.13+ and npm. Original Native typography also needs privately configured Franklin Gothic FS Book/Demi files; see [docs/NATIVE-DESIGN.md](docs/NATIVE-DESIGN.md). The hosted prototype has this font configuration.
 
 ```sh
 npm run install:ci
@@ -56,7 +56,9 @@ No real model call was made during validation. Provider tests use mocked respons
 | --- | --- |
 | `app/page.tsx` | Brief, route selection, reading preview and project controls |
 | `components/teaser-creator.tsx` | Teaser editor and downloads |
-| `lib/teaser-creative.mjs` | SVG renderer, dimensions and destination handling |
+| `lib/teaser-creative.mjs` | Measured layout, SVG renderer and destination handling |
+| `lib/teaser-typography.mjs` | Private font loading for outlined text |
+| `app/api/teaser-render/route.ts` | Server-side text outlines; receives no image bytes |
 | `lib/studio-contract.mjs` | Output schemas, evidence checks and reading-preview renderer |
 | `lib/studio-generator.mjs` | Editorial instructions and server-side model requests |
 | `lib/studio-project.mjs` | Save, import and tab recovery |

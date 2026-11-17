@@ -24,7 +24,7 @@ System instructions mark all input fields as untrusted material. They prohibit i
 
 The copy-and-paste handoff interrupted the workflow. It has been removed from the product interface. Automatic generation must run through a configured server-side account; unavailable generation is clearly identified and disabled. A fixture is never represented as new generation.
 
-Teaser text cards now open an inline creator. Headline, body, CTA, palette, image and format can be edited and previewed. Their preview opens the existing reading sample; exported HTML uses an explicitly supplied destination. PNG/SVG output is a creative concept and still needs platform-specific review before placement.
+Teaser text cards now open an inline creator. Kicker, headline, body, arrow colour, image and format can be edited and previewed. Their preview opens the existing reading sample; exported HTML uses an explicitly supplied destination. PNG/SVG output is a creative concept and still needs platform-specific review before placement.
 
 ## What to evaluate next
 
@@ -35,3 +35,7 @@ Teaser text cards now open an inline creator. Headline, body, CTA, palette, imag
 - Which validation errors point to a prompt problem, and which point to insufficient material?
 
 No measured time saving, creative-quality score or business impact is claimed by this prototype.
+
+## Native template alignment
+
+The creator now follows the supplied Native production references, including privately configured Franklin Gothic FS Book/Demi, one kicker, a white background, black copy and a STORY sender with arrow. The typography endpoint outlines copy without receiving image bytes. Preview and exported assets share those paths; production font files are excluded from source control and exports. See NATIVE-DESIGN.md for the reference scope and remaining sender/crop limits.
