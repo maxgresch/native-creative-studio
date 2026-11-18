@@ -1,0 +1,227 @@
+{
+  "schema": "native-creative-studio/0.3",
+  "brief": {
+    "brand": "WEITER · fiktive Beispielmarke",
+    "objective": "Die Möglichkeit einer gezielten Bürostuhl-Reparatur verständlich machen und Interesse an einer individuellen Bestandsprüfung wecken.",
+    "audience": "Menschen, die Büroflächen betreuen und über die Zukunft vorhandener Möbel entscheiden.",
+    "occasion": "Eine freie Konzeptstudie über den nächsten Lebensabschnitt eines Bürostuhls.",
+    "publisher": "Regionales Nachrichtenmedium. Die Leser:innen erwarten konkrete Einblicke in Arbeit und Alltag, nachvollziehbare Aussagen und eine klare Trennung von Werbung und Redaktion.",
+    "constraints": "Die Marke und sämtliche Materialangaben sind erfunden. Keine behaupteten Umweltvorteile, Erfahrungen von Kund:innen, Lebensdauern oder Interviews. Eine ausdrücklich fiktive Demonstration des Werkzeugs.",
+    "sources": [
+      {
+        "id": "S1",
+        "title": "Fiktives Materialblatt · WEITER",
+        "url": "",
+        "excerpt": "WEITER ist eine für diese Demonstration erfundene Marke. Das folgende Material beschreibt ein ausgedachtes Angebot, kein reales Unternehmen. Jeder Bürostuhl wird einzeln geprüft. Je nach Modell können Sitzbezüge, Rollen und bestimmte Mechaniken ersetzt werden. Wiederverwendbare Teile werden bei der Prüfung gesondert erfasst. Auf die Bestandsaufnahme folgt eine individuelle Maßnahmenliste. Reparaturen übernimmt eine Partnerwerkstatt. Nicht jeder Stuhl und nicht jeder Schaden eignet sich für eine Reparatur. Eine Rücknahme wird nur für ausgewählte Modelle angeboten. Es liegen keine Lebenszyklusanalyse, keine garantierte Nutzungsdauer und keine dokumentierten Erfahrungsberichte vor."
+      }
+    ]
+  },
+  "analysis": {
+    "status": "ready",
+    "material_summary": "Das Material beschreibt eine Einzelprüfung und den Austausch bestimmter Bauteile. Für einen recherchierten Beitrag fehlen ein dokumentierter Fall, eine beteiligte Person und der Zugang zur Werkstatt.",
+    "facts": [
+      {
+        "id": "F1",
+        "claim": "Im fiktiven Angebot wird jeder Bürostuhl einzeln geprüft.",
+        "source_id": "S1",
+        "quote": "Jeder Bürostuhl wird einzeln geprüft."
+      },
+      {
+        "id": "F2",
+        "claim": "Sitzbezüge, Rollen und bestimmte Mechaniken sind je nach Modell austauschbar.",
+        "source_id": "S1",
+        "quote": "Je nach Modell können Sitzbezüge, Rollen und bestimmte Mechaniken ersetzt werden."
+      },
+      {
+        "id": "F3",
+        "claim": "Auf die Bestandsaufnahme folgt eine individuelle Maßnahmenliste.",
+        "source_id": "S1",
+        "quote": "Auf die Bestandsaufnahme folgt eine individuelle Maßnahmenliste."
+      },
+      {
+        "id": "F4",
+        "claim": "Die Reparatur ist nicht für jeden Stuhl oder Schaden geeignet.",
+        "source_id": "S1",
+        "quote": "Nicht jeder Stuhl und nicht jeder Schaden eignet sich für eine Reparatur."
+      },
+      {
+        "id": "F5",
+        "claim": "Reparaturen werden von einer Partnerwerkstatt übernommen.",
+        "source_id": "S1",
+        "quote": "Reparaturen übernimmt eine Partnerwerkstatt."
+      }
+    ],
+    "routes": [
+      {
+        "id": "R1",
+        "kind": "strategisch",
+        "title": "Was an einem Bürostuhl austauschbar ist",
+        "reader_question": "Welche Teile lassen sich ersetzen, bevor ein neuer Stuhl gekauft wird?",
+        "insight": "Die Prüfung einzelner Bauteile erklärt das Angebot konkreter als eine allgemeine Aussage über Langlebigkeit.",
+        "concept": "Eine Darstellung zeigt Rollen, Bezug und Mechanik getrennt. Zu jedem Bauteil wird erklärt, was sich prüfen und je nach Modell ersetzen lässt.",
+        "brand_role": "WEITER liefert die fachliche Perspektive auf die Bestandsaufnahme. Die Marke verspricht kein pauschales Ergebnis.",
+        "publisher_fit": "Ein gebräuchliches Arbeitsmöbel eignet sich, um Reparatur und Beschaffung zu erklären.",
+        "creative_mechanic": "Eine visuelle Explosionszeichnung mit drei anklickbaren Bauteilen. Die Funktion müsste separat gebaut und fachlich geprüft werden.",
+        "opening_hook": "Was bleibt von einem Stuhl, wenn eine Rolle nicht mehr mitmacht?",
+        "evidence_ids": [
+          "F1",
+          "F2",
+          "F4"
+        ],
+        "research_gaps": [
+          "Ein tatsächlich reparierbares Modell und freigegebene Detailaufnahmen beschaffen.",
+          "Die technische Darstellung von Fachleuten prüfen lassen."
+        ],
+        "visual_direction": "graphic"
+      },
+      {
+        "id": "R2",
+        "kind": "menschlich",
+        "title": "Eine kaputte Rolle. Ein neuer Stuhl?",
+        "reader_question": "Muss der ganze Stuhl ersetzt werden, wenn ein einzelnes Teil defekt ist?",
+        "insight": "Die Frage nach einem defekten Bauteil führt zur Prüfung des vorhandenen Stuhls.",
+        "concept": "Der Text beginnt mit der Frage nach einer defekten Rolle. Danach erklärt er die Einzelprüfung, mögliche Ersatzteile und die Grenzen einer Reparatur. Detailaufnahmen sollen die beschriebenen Teile zeigen.",
+        "brand_role": "WEITER beschreibt das im Beispiel angelegte Prüfverfahren und die anschließende Maßnahmenliste.",
+        "publisher_fit": "Der Beitrag richtet sich an Leser:innen, die Büroflächen betreuen oder über vorhandene Möbel entscheiden.",
+        "creative_mechanic": "Detailaufnahmen zeigen Rolle, Bezug und Mechanik. Ein realer Fall müsste dafür recherchiert und fotografiert werden.",
+        "opening_hook": "Was tun, wenn eine Rolle nicht mehr dreht – den ganzen Stuhl ersetzen oder das Bauteil prüfen?",
+        "evidence_ids": [
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "F5"
+        ],
+        "research_gaps": [
+          "Einen realen Stuhl mit dokumentierter Prüfung auswählen.",
+          "Werkstatt und beteiligte Personen recherchieren; keine Mitwirkung ist zugesagt."
+        ],
+        "visual_direction": "editorial"
+      },
+      {
+        "id": "R3",
+        "kind": "pragmatisch",
+        "title": "Behalten, reparieren oder weitergeben?",
+        "reader_question": "Welche Informationen brauche ich vor der Entscheidung über vorhandene Bürostühle?",
+        "insight": "Vor der Entscheidung über eine Reparatur fehlen oft Angaben zum konkreten Möbel. Die Checkliste sammelt die Fragen für eine Prüfung.",
+        "concept": "Eine Checkliste erfasst Modell, Zustand und betroffene Teile. Das Ergebnis ist eine Übersicht für die fachliche Prüfung, keine automatische Reparaturempfehlung.",
+        "brand_role": "WEITER erklärt, welche Informationen für eine individuelle Prüfung gebraucht werden.",
+        "publisher_fit": "Die Checkliste hilft Leser:innen, Informationen über vorhandene Bürostühle zusammenzustellen.",
+        "creative_mechanic": "Eine schrittweise Checkliste mit editierbarer Zusammenfassung. Keine automatische Reparaturdiagnose oder Umweltersparnis.",
+        "opening_hook": "Bevor der Stuhl geht: Was wissen wir eigentlich über ihn?",
+        "evidence_ids": [
+          "F1",
+          "F3",
+          "F4"
+        ],
+        "research_gaps": [
+          "Prüfkriterien mit einer Fachperson entwickeln.",
+          "Die Checkliste mit Nutzer:innen erproben."
+        ],
+        "visual_direction": "immersive"
+      }
+    ],
+    "missing_material": []
+  },
+  "selected_route": {
+    "id": "R2",
+    "kind": "menschlich",
+    "title": "Eine kaputte Rolle. Ein neuer Stuhl?",
+    "reader_question": "Muss der ganze Stuhl ersetzt werden, wenn ein einzelnes Teil defekt ist?",
+    "insight": "Die Frage nach einem defekten Bauteil führt zur Prüfung des vorhandenen Stuhls.",
+    "concept": "Der Text beginnt mit der Frage nach einer defekten Rolle. Danach erklärt er die Einzelprüfung, mögliche Ersatzteile und die Grenzen einer Reparatur. Detailaufnahmen sollen die beschriebenen Teile zeigen.",
+    "brand_role": "WEITER beschreibt das im Beispiel angelegte Prüfverfahren und die anschließende Maßnahmenliste.",
+    "publisher_fit": "Der Beitrag richtet sich an Leser:innen, die Büroflächen betreuen oder über vorhandene Möbel entscheiden.",
+    "creative_mechanic": "Detailaufnahmen zeigen Rolle, Bezug und Mechanik. Ein realer Fall müsste dafür recherchiert und fotografiert werden.",
+    "opening_hook": "Was tun, wenn eine Rolle nicht mehr dreht – den ganzen Stuhl ersetzen oder das Bauteil prüfen?",
+    "evidence_ids": [
+      "F1",
+      "F2",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "research_gaps": [
+      "Einen realen Stuhl mit dokumentierter Prüfung auswählen.",
+      "Werkstatt und beteiligte Personen recherchieren; keine Mitwirkung ist zugesagt."
+    ],
+    "visual_direction": "editorial"
+  },
+  "draft": {
+    "headline": "Eine kaputte Rolle. Ein neuer Stuhl?",
+    "kicker": "Arbeit & Gestaltung · fiktive Konzeptstudie",
+    "teaser": "Was tun, wenn eine Rolle nicht mehr dreht oder der Bezug durch ist? Die Prüfung einzelner Bauteile kann klären, welche Möglichkeiten für den vorhandenen Stuhl bestehen.",
+    "opening": [
+      {
+        "text": "Was tun, wenn eine Rolle nicht mehr dreht oder der Bezug durch ist? Den ganzen Stuhl ersetzen – oder erst prüfen, was sich reparieren lässt? Bevor die Entscheidung fällt, geht es um das konkrete Modell und die betroffenen Teile.",
+        "kind": "framing",
+        "evidence_ids": []
+      },
+      {
+        "text": "Die fiktive Marke WEITER sieht in ihrem Beispielangebot eine Einzelprüfung vor. Je nach Modell lassen sich Sitzbezüge, Rollen und bestimmte Mechaniken ersetzen. Welche Teile infrage kommen, wird für den jeweiligen Stuhl geprüft.",
+        "kind": "sourced",
+        "evidence_ids": [
+          "F1",
+          "F2"
+        ]
+      },
+      {
+        "text": "Für eine Bestandsaufnahme stellen sich damit konkrete Fragen: Welches Modell ist vorhanden? Was ist beschädigt? Und was lässt sich daran überhaupt austauschen? Eine Liste mit diesen Angaben wäre der Ausgangspunkt für die weitere Prüfung.",
+        "kind": "framing",
+        "evidence_ids": []
+      }
+    ],
+    "explainer_heading": "Die Maßnahmenliste kommt vor der Reparatur",
+    "explainer": [
+      {
+        "text": "Auf die Bestandsaufnahme folgt im WEITER-Beispiel eine individuelle Maßnahmenliste. Sie hält fest, welche Arbeiten für den geprüften Stuhl vorgesehen sind. Reparaturen übernimmt eine Partnerwerkstatt. Der Ablauf beginnt also beim vorhandenen Möbel und dessen Zustand.",
+        "kind": "sourced",
+        "evidence_ids": [
+          "F3",
+          "F5"
+        ]
+      },
+      {
+        "text": "Die Prüfung kann auch zu einem anderen Ergebnis führen: Nicht jeder Stuhl und nicht jeder Schaden eignet sich für eine Reparatur. Welche Arbeiten tatsächlich möglich sind, bleibt bis zur Prüfung offen. Aus der Möglichkeit, einzelne Teile zu ersetzen, folgt deshalb noch keine Zusage für einen bestimmten Stuhl.",
+        "kind": "sourced",
+        "evidence_ids": [
+          "F4"
+        ]
+      }
+    ],
+    "takeaway": "Der Zustand einzelner Teile ist der Ausgangspunkt. Die Entscheidung über den ganzen Stuhl folgt nach der Prüfung.",
+    "continue_question": "Welche Angaben braucht die Werkstatt für eine Prüfung?",
+    "teasers": [
+      {
+        "angle": "Einstieg über ein Bauteil",
+        "headline": "Eine kaputte Rolle. Ein neuer Stuhl?",
+        "body": "Rolle, Bezug oder Mechanik: Was lässt sich austauschen, bevor ein ganzer Bürostuhl ersetzt wird? Ein Blick auf die Einzelprüfung.",
+        "cta": "Leseprobe öffnen"
+      },
+      {
+        "angle": "Frage der Leser:innen",
+        "headline": "Was lässt sich an diesem Stuhl ersetzen?",
+        "body": "Im Beispielangebot von WEITER werden Rollen, Bezüge und bestimmte Mechaniken geprüft. Welche Möglichkeiten gibt es – und wo liegen die Grenzen?",
+        "cta": "Leseprobe öffnen"
+      },
+      {
+        "angle": "Ablauf der Prüfung",
+        "headline": "Was vor der Reparatur geprüft wird",
+        "body": "Vor einer Reparatur steht die Einzelprüfung. Im WEITER-Beispiel zeigt sie, welche Maßnahmen möglich sind und welche Schäden ausgeschlossen bleiben.",
+        "cta": "Leseprobe öffnen"
+      }
+    ],
+    "production_notes": [
+      "Gespeichertes, von Hand verfasstes Beispiel. Kein Ergebnis einer Live-Generierung.",
+      "WEITER und das Angebot sind erfunden. Für eine reale Umsetzung Material durch geprüfte Quellen ersetzen.",
+      "Einen dokumentierten Fall, Bildrechte und Werkstattzugang klären. Keine Umwelt- oder Lebensdauerversprechen ableiten."
+    ]
+  },
+  "meta": {
+    "mode": "example"
+  },
+  "step": 2,
+  "image": "",
+  "imageName": "",
+  "creatives": []
+}

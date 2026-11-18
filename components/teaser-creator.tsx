@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Download, ImagePlus, X } from 'lucide-react';
 import { CREATIVE_DEFAULT, TEASER_FORMATS, teaserHtml, withCreativeImage } from '@/lib/teaser-creative.mjs';
-type Teaser = { angle: string; headline: string; body: string; cta: string };
+type Teaser = { angle: string; headline: string; body: string; cta: string; evidence_ids?: string[] };
 export type Creative = { format: string; kicker: string; showStoryLogo: boolean; accent: string; image: string; imageName: string; targetUrl: string };
 type Fit = Record<'kicker' | 'headline' | 'body' | 'cta', { lines: string[]; overflow: boolean }>;
 const save = (name: string, blob: Blob) => { const url = URL.createObjectURL(blob), a = document.createElement('a'); a.href = url; a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); };

@@ -8,9 +8,9 @@ The smallest useful output is a defensible route plus a reading sample. A full a
 
 ## Two deliberate generation steps
 
-First extract material facts and develop three approaches. Then let a person select and revise an approach. Only then write the sample. This prevents an attractive first output from silently deciding the strategy.
+First extract material facts and develop two or three approaches. Then let a person select and revise an approach. Only then write the sample. This prevents an attractive first output from silently deciding the strategy.
 
-The three perspectives are strategic, human and practical. The contract enforces categories and references; it cannot measure whether the ideas are truly distinct or good. That is a user decision.
+Every route needs a human task, narrative development and a distinct reader gain. Categories are not a quota. Two strong routes are sufficient. Required fields and known references can be checked; creative and semantic quality still require editorial judgement.
 
 ## Evidence is a pointer
 
@@ -45,3 +45,7 @@ The creator now follows the supplied Native production references, including pri
 The reading output uses an editorial article layout: a typographic introduction, image-led opening when a motif is supplied, a narrow reading column and restrained source notes. The three visual directions retain distinct typography and image treatment without large coloured presentation blocks. A separate-tab preview uses the same HTML as the in-studio reading sample and download.
 
 The teaser creator starts with the STORY BERLIN sender switched off. A labelled checkbox controls it. The boolean setting is normalized, retained in project files, sent to the text renderer and reflected in PNG, SVG and HTML exports; the arrow remains the click cue.
+
+## Editorial standard and case
+
+The shared instruction module replaces fixed explainer paragraphs with variable sections, and adds fact pointers for headlines, standfirsts, endings and teasers. These pointers are not semantic verification. The new case has two authored routes and reading samples. Edited inputs lose the saved sample. Schema 0.4 explicitly recovers legacy projects without fabricating missing concept metadata. No benchmark of live model quality is inferred from authored fixtures or mocks.
